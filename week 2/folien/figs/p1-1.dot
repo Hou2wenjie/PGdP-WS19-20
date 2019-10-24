@@ -1,0 +1,17 @@
+digraph p1{
+    start[label="Start" shape=circle style=filled]
+    setup[label="set sum = 0" shape=box]
+    getInput[label="get user input from console" shape=box]
+    addInputToSum[label="sum = sum + input" shape=box]
+    ifInput[label="if the user input is 0?" shape=diamond]
+    write[label="write the summe to the console" shape=box]
+    end[label="END" shape=circle style=filled]
+
+    start -> setup
+    setup -> getInput
+    getInput -> addInputToSum
+    addInputToSum -> ifInput
+    ifInput -> write[label="True"]
+    ifInput -> getInput[label="False"]
+    write -> end
+}
