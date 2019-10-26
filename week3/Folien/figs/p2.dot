@@ -1,0 +1,30 @@
+digraph p2{
+    size = "40, 30";
+    start[label="Start" shape=circle style=filled]
+    ifLT0[label="user input < 0?" shape=diamond]
+    error[label="error: input must GT 1" shape=box]
+    setupFoctor[label="set factor = 2" shape=box]
+    ifNumNE1[label="Input != 1?" shape=diamond]
+    incFactor[label="factor++" shape=box]
+    if[label="tem % factor == 0\n AND isPrime(factor)" shape=diamond]
+    addFactor[label="add factor to the result" shape=box]
+    divInput[label="tem = tem / factor" shape=box]
+    reform[label="reform the result String" shape=box]
+    write[label="write the String to the console" shape=box]
+    end[label="END" shape=circle style=filled]
+
+    start -> ifLT0
+    ifLT0 -> error[label="True"]
+    error -> end
+    ifLT0 -> setupFoctor[label="False"]
+    setupFoctor -> ifNumNE1
+    ifNumNE1 -> reform[label="False"]
+    reform -> write
+    write -> end
+    ifNumNE1 -> if[label="True"]
+    if -> addFactor[label="True"]
+    if -> incFactor[label="False"]
+    incFactor -> ifNumNE1
+    addFactor -> divInput
+    divInput -> ifNumNE1
+}
