@@ -6,11 +6,11 @@ digraph p2{
     setupFoctor[label="set factor = 2" shape=box]
     ifNumNE1[label="Input != 1?" shape=diamond]
     incFactor[label="factor++" shape=box]
-    if[label="tem % factor == 0\n AND isPrime(factor)" shape=diamond]
+    if[label="tem % factor == 0" shape=diamond]
     addFactor[label="add factor to the result" shape=box]
     divInput[label="tem = tem / factor" shape=box]
     reform[label="reform the result String" shape=box]
-    write[label="write the String to the console" shape=box]
+    write[label="write result to the console" shape=box]
     end[label="END" shape=circle style=filled]
 
     start -> ifLT0
