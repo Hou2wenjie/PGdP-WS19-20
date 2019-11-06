@@ -35,9 +35,9 @@
 
 \title{Praktikum: Grundlagen der Programmierung}
 \author[Wenjie Hou]{Wenjie Hou}
-\date{2. Tutorübung}
+\date{3. Tutorübung}
 \institute{\theuniversity\par Fakultät für Informatik}
-\footline{\insertshortauthor~|~\insertshorttitle~|~2. Tutorübung}
+\footline{\insertshortauthor~|~\insertshorttitle~|~3. Tutorübung}
 
 \begin{document}
 
@@ -45,178 +45,202 @@
   \titlepage
 \end{frame}
 
-\begin{frame}[t]
-  \frametitle{Overview}
- \tableofcontents[section=show,subsectionstyle=show]
-\end{frame}
-
-
 \section{Lecture Review}
 
-\begin{frame}
-  \frametitle{Lecture Review}
+\section{P01: Syntaxbaum}
+\begin{frame}[fragile]
+  \frametitle{P01: Syntaxbaum}
+  \vspace*{\fill}
+\large  For the following MiniJava program, draw the syntax tree from the lecture according to the MiniJava grammar. \par
+~\\
+\bigskip
+\center
+\begin{lstlisting}
+int x,r;
+int n;
+r = 1;
+n = 1;
+x = readInt();
+while (n < x) {
+    if (r % 1 == 0)
+        r = r * n;
+    else {
+        r = r * (-n);
+    }
+    n = n + 1;
+    write (r);
+}
+\end{lstlisting}
 
-  \begin{alertblock}{Control Statements in Java}
-   \begin{enumerate}
-  \item Decision Making
-  	\begin{itemize}
-	\item if...then
-	\item if...then...else
-	\item if...then...else if...then...
-	\item Switch
-	\item Ternary operation A ? B : C
-	\end{itemize}
-  \item Looping Statements
-  	\begin{itemize}
-	\item While Loop
-	\item Do-While Loop
-	\item For Loop
-	\item Foreach Loop
-	\end{itemize}
-  \item Branching Statements
-  \begin{itemize}
-	\item Break
-	\item Countinue
-	\item Return
-	\end{itemize}
-  \end{enumerate}
-  \end{alertblock}
+\vspace*{\fill}
 \end{frame}
 
-\section{P01: Summieren}
+\section{P02: Binäre Zahlen}
+
 \begin{frame}[fragile]
-  \frametitle{P01: Summieren}
-  \vspace*{\fill}
-\large  In this task, a program is to be created which calculates the sum of several integers entered by the user. Ask the user to enter a number with "$\color{blue} Bitte$ $\color{blue}Zahl$ $\color{blue} eingeben:$" \textbf{until 0 is entered}. \par
+\frametitle{P02: Binäre Zahlen}
+\framesubtitle{Regular Expression}
+\vspace*{\fill} \large
+\begin{tabular}{l|l}
+Metacharacter&Description\\
+$?$&Matches the preceding element zero or one time.\\
+$*$&Matches the preceding element zero or more times.\\
+$|$&The choice (also known as alternation or set union) operator matches either the expression\\ &before or the expression after the operator.\\
+$\{m,n\}$&Matches the preceding element at least m and not more than n times.\\
+\end{tabular}
+\vspace*{\fill}
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{P02: Binäre Zahlen}
+\framesubtitle{Regular Expression}
+\vspace*{\fill} \large
+Problem statement: See Artemis \url{https://artemis.ase.in.tum.de/overview/37/exercises/789}\\
+\vspace*{\fill}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{P02: Binäre Zahlen}
+\framesubtitle{Regular Expression}
+\vspace*{\fill} \large
+Problem statement: See Artemis \url{https://artemis.ase.in.tum.de/overview/37/exercises/789}\\
+\bigskip
+Solution: $0(b|B)(0|1)((\_|0|1)*(0|1))?$\\
+\vspace*{\fill}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{P02: Binäre Zahlen}
+\framesubtitle{Regular Expression}
+\vspace*{\fill} \large
+Problem statement: See Artemis \url{https://artemis.ase.in.tum.de/overview/37/exercises/789}\\
+\bigskip
+Solution: $0(b|B)(0|1)((\_|0|1)*(0|1))?$\\
+\bigskip
+Or: $0(b|B)(\_(0|1)\{4\})*(0|1)\{1,3\}$
+\vspace*{\fill}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{P03: Palindrome}
+\vspace*{\fill} \big
+
+In this task you should write a program which checks for a number whether the number is a palindrome. A number is a palindrome if it represents the same value read forwards and backwards.\par
 ~\\
-As soon as the number 0 is entered, print "$\color{blue} Summe:$", print the sum of the numbers entered by the user in another line  and \textbf{terminated} the program.\par
+First the user should be asked for a positive number. Repeat the quert until the user actually enters a positive number. The number entered is then to be converted into an array of digits on which the palindrome property is finally checked. Then either print \textsl{ \color{blue}"palindrome"} or textsl{ \color{blue}"Kein Palindrom"}.\par
+~\\
+The number is to be read by calling  textsl{ \color{red}readInt()}. It must not be converted into a string at any time. Only use MiniJava methods. In particular, do not use the method Math.log10(double a).\par
 \bigskip
 \textbf{\large Example Output:}
 \center
 \begin{lstlisting}
-<Bitte Zahl eingeben:
->-3
-<Bitte Zahl eingeben:
->31
-<Bitte Zahl eingeben:
->0
-<Summe:
-<28
-\end{lstlisting}
-
-\vspace*{\fill}
-\end{frame}
-
-
-\subsection{Flow Diagram}
-\begin{frame}{Flow Diagram}
-\begin{figure}[htbp]
-\centering
-\begin{minipage}[t]{0.48\textwidth}
-\centering
-\includegraphics[height=8cm]{p1-1.png}
-\caption{v1}
-\end{minipage}
-\begin{minipage}[t]{0.48\textwidth}
-\centering
-\includegraphics[height=8cm]{p1-2.png}
-\caption{v2}
-\end{minipage}
-\end{figure}
-\end{frame}
-
-\subsection{Code - 1}
-\begin{frame}{Code -1}
-\center \includegraphics[height=9cm]{p1-code.png}
-\end{frame}
-
-\subsection{Code - 2}
-\begin{frame}{Code -2}
-\center \includegraphics[height=9cm]{p1-2-code.png}
-\end{frame}
-
-\section{P02: Integer factorization}
-\begin{frame}[fragile]
-\frametitle{P02: Integer factorization}
-\vspace*{\fill} \large
-Any natural number $n > 1$ is either a prime itself or can be represented as a product of prime numbers. To calculate the prime factorization of a number $n$, divide it by all natural numbers starting from 2. If a divisor t is found, then output t. If the quotient $\frac{n}{t} > 1$, then it is also decomposed into its prime factors.\par
-~\\
-Write a MiniJava program that says\textsl{ \color{blue}"Bitte Zahl eingeben:"} and reads a natural number $n > 1$ from the user and breaks it up into prime terms. Your program should output all prime factors of the number $n$ separated by spaces on the screen. If the input number entered is $n \leq 1$, then print \textsl{\color{blue}"Fehler: $n >1$ erwartet!"}.\par
-~\\
-Tip: You can use the $\color{blue}writeConsole ()$ method to print something on the console without extra line break. By using method $\color{blue}writeLineConsole()$ you can print a line with the line feed.\par
-\bigskip
-\textbf{\large Example Output:}
-\begin{lstlisting}
-Bitte Zahl eingeben:
->12321342
-2 3 3 3 11 20743
-\end{lstlisting}
-\vspace*{\fill}
-
-\end{frame}
-
-\subsection{Flow Diagram}
-\begin{frame}[fragile]
-\frametitle{Flow Diagram}
-
-\center \includegraphics[height=9cm]{p2.png}
-
-\end{frame}
-
-
-\subsection{Code}
-\begin{frame}[fragile]
-\frametitle{Code}
-\vspace{-1cm}
-\center \includegraphics[height=10cm]{p2-code.png}
-
-\end{frame}
-
-\section{P03: Population of Rabbit}
-\begin{frame}[fragile]
-\frametitle{P03: Population of Rabbit}
-\vspace*{\fill} \large
-
-We put a pair of mature rabbits on a desert island to find out how many rabbits will born within a year. It is assumed that every mature couple will give birth to a new pair of rabbits each month. Each rabbit pair is sexually mature for the first month of life and each rabbit has \textbf{a lifetime of $3$ months}.\par
-~\\
-Write a MiniJava program that reads in the number $n$, which is the $n^{th}$ month. Your program should print out the sum of the rabbit pairs, which are mature in the $n^{th}$ month. You can assume that $n \geq 1$. \par
-\bigskip
-\textbf{\large Example Output:}
-\begin{lstlisting}
-<Bitte Zahl eingeben:
->3
-<4
+<Geben Sie eine Zahl n >= 0 ein.
+>1221
+<Palindrom
+<Geben Sie eine Zahl n >= 0 ein.
+>123
+<Kein Palindrom
 \end{lstlisting}
 \vspace*{\fill}
 \end{frame}
 
 \subsection{Code}
 \begin{frame}[fragile]
-\frametitle{Code}
+\frametitle{Code - 1}
+\vspace*{\fill}
+\begin{lstlisting}
+ public static void main(String[] args) {
+        int n = read("Geben Sie eine Zahl n >= 0 ein.");
+        while (n < 0) {
+          n = read("Geben Sie eine Zahl n >= 0 ein.");
+        }
 
-\vspace{-2cm}
-\center \includegraphics[height=11cm]{p3-code.png}
+        // We first count the number of digits of the number n by dividing the number by 10 
+        //until it has the value 0. The number of divisions corresponds to the number of digits.
+        int numberOfDigits = 0;
+        int t = n;
+        while (t != 0) {
+          numberOfDigits++;
+          t = t / 10;
+        }
 
+        int[] digits = new int[numberOfDigits];
+
+\end{lstlisting}
+\vspace*{\fill}
 \end{frame}
 
-\section{P04: 3 and 7}
 \begin{frame}[fragile]
-\frametitle{P04: 3 and 7}
+\frametitle{Code - 2}
+\vspace*{\fill}
+\begin{lstlisting}
+	
+	// We now read the digits into an array. We get a digit as division remainder by 10.
+	//The order in which we place the number in the array does 
+	//not matter for the palindrome test.
+        int i = 0;
+        while (n != 0) {
+          int digit = n % 10;
+          digits[i] = digit;
+          n = n / 10;
+          i++;
+        }
+
+\end{lstlisting}
+\vspace*{\fill}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Code - 3}
+\vspace*{\fill}
+\begin{lstlisting}
+        int notMatching = 0;
+        i = 0;
+        while (i < numberOfDigits / 2) {
+          if (digits[i] != digits[numberOfDigits - i - 1])
+            notMatching++;
+          i++;
+        }
+
+        if (notMatching == 0)
+          write("Palindrom");
+        else
+          write("Kein Palindrom");
+      }
+
+
+\end{lstlisting}
+\vspace*{\fill}
+\end{frame}
+
+ 
+\begin{frame}[fragile]
+\frametitle{P04: Pascalsches Dreieck}
 \vspace*{\fill} \large
 
-Write a program that prints \textsl{ \color{blue}"Bitte Zahl eingeben:"}" and then read in a number $n$. Then it calculate the sum of all positive numbers less than or equal to n, and are divisible by 3 or 7. Then print the result to console. If the user enters a negative number,\textsl{\color{blue}"Fehler: $n >1$ erwartet!"} and exit the program.\par
-~\\
-If the user types e.g. If the number is $25$, so we add $3, 6, 7, 9, 12, 14, 15, 18, 21, and 24$ and it gives us $129$.\par
-\bigskip
+The Pascal triangle is built step by step, starting with line 0. To do this, calculate the nth line from the $(n - 1)^{th}$ line as follows:\par
+\begin{itemize}
+	\item The number of elements of line $n$ is $n + 1$.
+	\item The first and last number of each line is always 1.
+	\item The $i^{th}$ element of line $n$ corresponds to the sum of the $i^{th}$ and $(i-1)^{th}$ elements of line $(n - 1)$.
+\end{itemize}
+Write a Java method calls textsl{ \color{red}int[][] pascalDreieck(int n)} , which calculates the Pascal triangle. The parameter $n$ specifies the number of lines to be calculated; an array containing the Pascal triangle is returned. Also implement the main method, in which a Pascal triangle for a user-defined size n is output. Assume that the input is $n \ge 0$.\par
+\vspace*{\fill}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{P04: Pascalsches Dreieck}
+\vspace*{\fill}
 \textbf{\large Example Output:}
 \begin{lstlisting}
-Bitte Zahl eingeben:
->91
-1822
-
-Bitte Zahl eingeben:
->16
-1822
+<Gib die Zeilenzahl an:
+>5
+<n=0    1
+<n=1    1   1
+<n=2    1   2   1
+<n=3    1   3   3   1
+<n=4    1   4   6   4   1
 \end{lstlisting}
 
 \vspace*{\fill}
@@ -225,11 +249,47 @@ Bitte Zahl eingeben:
 \subsection{Code}
 \begin{frame}[fragile]
 \frametitle{Code}
+\vspace*{\fill}
+\center
+\begin{lstlisting}
+// Funktion zur Berechnung der ersten n Zeilen des Pascalschen Dreiecks.
+    public static int[][] pascalDreieck(int n) {
+        int[][] dreieck = new int[n][];
+        for (int m = 0; m < n; m++) {
+            dreieck[m] = new int[m + 1];
+            dreieck[m][0] = 1;
+            dreieck[m][m] = 1;
+            for (int i = 1; i < m; i++)
+                dreieck[m][i] = dreieck[m - 1][i - 1] + dreieck[m - 1][i];
+        }
+        return dreieck;
+    }
 
-\center \includegraphics[height=9cm]{p4-code.png}
-
+\end{lstlisting}
+\vspace*{\fill}
 \end{frame}
 
+\begin{frame}[fragile]
+\frametitle{Code}
+\vspace*{\fill}
+\center
+\begin{lstlisting}
+    public static void main(String[] args) {
+        int zeilenzahl = read("Gib die Zeilenzahl an:");
+        int[][] dreieck = pascalDreieck(zeilenzahl);
+        for (int i = 0; i < zeilenzahl; i++) {
+            writeConsole("n=" + i);
+            for (int j = 0; j < dreieck[i].length; j++) {
+                writeConsole("\t");
+                writeConsole(dreieck[i][j]);
+            }
+            writeLineConsole();
+        }
+    }
+
+\end{lstlisting}
+\vspace*{\fill}
+\end{frame}
 \begin{frame}[fragile]
 \vspace*{\fill} 
 \begin{center}
